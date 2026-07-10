@@ -1,0 +1,282 @@
+.tracking-page {
+  min-height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.tracking-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.tracking-loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Erreur */
+.tracking-error {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.tracking-error h1 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.tracking-error p {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Header */
+.tracking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tracking-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tracking-logo-icon {
+  width: 28px;
+  height: 28px;
+  background: #6366f1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.tracking-logo-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.tracking-ref {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Statut principal */
+.tracking-status {
+  text-align: center;
+  padding: 24px 20px;
+  background: #f0f0ff;
+}
+
+.tracking-status h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #6366f1;
+  margin: 0 0 6px;
+}
+
+.tracking-status p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.tracking-finished {
+  background: #f0fdf4;
+}
+
+.tracking-finished h1 {
+  color: #16a34a;
+}
+
+.tracking-cancelled {
+  background: #fef2f2;
+}
+
+.tracking-cancelled h1 {
+  color: #dc2626;
+}
+
+/* Timeline */
+.tracking-timeline {
+  display: flex;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.tracking-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.tracking-step::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #e2e8f0;
+}
+
+.tracking-step:last-child::after {
+  display: none;
+}
+
+.tracking-step-done::after {
+  background: #6366f1;
+}
+
+.tracking-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.tracking-step-done .tracking-dot {
+  background: #6366f1;
+}
+
+.tracking-step-current .tracking-dot {
+  background: #fff;
+  border: 2px solid #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.tracking-step-label {
+  font-size: 10px;
+  color: #cbd5e1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tracking-step-done .tracking-step-label {
+  color: #6366f1;
+}
+
+.tracking-step-current .tracking-step-label {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+/* Infos */
+.tracking-infos {
+  padding: 16px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.tracking-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.tracking-info-row:last-child {
+  border-bottom: none;
+}
+
+.tracking-info-label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.tracking-info-value {
+  font-size: 13px;
+  color: #0f172a;
+  text-align: right;
+  max-width: 60%;
+}
+
+/* Contact */
+.tracking-contact {
+  text-align: center;
+  padding: 16px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.tracking-contact p {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0 0 8px;
+}
+
+.tracking-call {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #6366f1;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.tracking-call:hover {
+  background: #4f46e5;
+}
+
+/* Footer */
+.tracking-footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  color: #cbd5e1;
+  border-top: 1px solid #f1f5f9;
+}
+
+@media (max-width: 480px) {
+  .tracking-page {
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .tracking-card {
+    border-radius: 0;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+
+  .tracking-step-label {
+    font-size: 9px;
+  }
+
+  .tracking-timeline {
+    padding: 16px 12px;
+  }
+}

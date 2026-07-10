@@ -1,0 +1,183 @@
+.dashboard-loading {
+  color: #64748b;
+  font-size: 14px;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.dashboard-welcome {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+.btn-new-repair {
+  background: #6366f1;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-new-repair:hover {
+  background: #4f46e5;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 4px 0 0;
+}
+
+/* Dernières réparations */
+.recent-repairs {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.recent-repairs h2 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.no-data {
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 1rem 0;
+}
+
+.repairs-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.repair-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+}
+
+.repair-row:last-child {
+  border-bottom: none;
+}
+
+.repair-row:hover {
+  background: #f8fafc;
+}
+
+.repair-ref {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.repair-device {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+/* Badges statut */
+.status-badge {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.status-reception {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.status-diagnostic {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.status-devis {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.status-en_attente_piece {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-en_cours {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status-termine {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-restitue {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-annule {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

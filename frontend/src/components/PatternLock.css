@@ -1,0 +1,53 @@
+.pattern-lock {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  display: inline-block;
+}
+
+.pattern-canvas {
+  display: block;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  touch-action: none;
+  margin: 12px auto;
+}
+
+.pattern-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  min-height: 36px;
+}
+
+.pattern-hint {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.pattern-value {
+  font-size: 12px;
+  color: #6366f1;
+  font-weight: 500;
+}
+
+.pattern-clear {
+  padding: 3px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 11px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pattern-clear:hover {
+  border-color: #cbd5e1;
+  color: #0f172a;
+}

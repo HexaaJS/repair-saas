@@ -1,0 +1,264 @@
+.clients-header {
+  margin-bottom: 1.5rem;
+}
+
+.clients-header h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.clients-count {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+/* Recherche */
+.clients-search {
+  margin-bottom: 1rem;
+}
+
+.clients-search input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.clients-search input:focus {
+  border-color: #6366f1;
+}
+
+/* Layout split */
+.clients-layout {
+  display: flex;
+  gap: 12px;
+  min-height: 500px;
+}
+
+.clients-list {
+  width: 320px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.clients-empty {
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 1.5rem;
+}
+
+/* Ligne client */
+.client-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.client-row:last-child {
+  border-bottom: none;
+}
+
+.client-row:hover {
+  background: #f8fafc;
+}
+
+.client-row-active {
+  background: #f0f0ff;
+}
+
+.client-row-active:hover {
+  background: #f0f0ff;
+}
+
+.client-avatar {
+  width: 36px;
+  height: 36px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.client-row-active .client-avatar {
+  background: #6366f1;
+  color: #fff;
+}
+
+.client-info {
+  min-width: 0;
+}
+
+.client-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.client-phone {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+/* Détail client */
+.client-detail {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.client-detail-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
+}
+
+.client-detail-empty p {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* Header détail */
+.client-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.client-detail-avatar {
+  width: 48px;
+  height: 48px;
+  background: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.client-detail-header h2 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.client-detail-since {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+/* Infos */
+.client-detail-infos {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.client-detail-field {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.client-detail-field .field-label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.client-detail-field .field-value {
+  font-size: 13px;
+  color: #0f172a;
+}
+
+/* Réparations du client */
+.client-repairs {
+  padding: 16px 20px;
+}
+
+.client-repairs h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.client-repair-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+}
+
+.client-repair-row:last-child {
+  border-bottom: none;
+}
+
+.client-repair-row:hover {
+  background: #f8fafc;
+  margin: 0 -20px;
+  padding: 10px 20px;
+}
+
+.client-repair-row .repair-ref {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.client-repair-row .repair-device {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+@media (max-width: 768px) {
+  .clients-layout {
+    flex-direction: column;
+  }
+
+  .clients-list {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .client-detail {
+    max-height: none;
+  }
+}

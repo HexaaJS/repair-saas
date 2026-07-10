@@ -1,0 +1,273 @@
+.settings-page h1 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 0 1.5rem;
+}
+
+/* Tabs */
+.settings-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.settings-tab {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  font-size: 13px;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+}
+
+.settings-tab:hover {
+  color: #0f172a;
+}
+
+.tab-active {
+  color: #6366f1;
+  border-color: #6366f1;
+}
+
+/* Card */
+.settings-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.settings-success {
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.settings-error {
+  background: #fef2f2;
+  color: #dc2626;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+/* Formulaires */
+.settings-card .form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.settings-card .form-row .form-group {
+  flex: 1;
+}
+
+.settings-card .form-group {
+  margin-bottom: 16px;
+}
+
+.settings-card .form-group label {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.settings-card .form-group input,
+.settings-card .form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.settings-card .form-group input:focus,
+.settings-card .form-group select:focus {
+  border-color: #6366f1;
+}
+
+.btn-save {
+  padding: 10px 24px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background: #4f46e5;
+}
+
+.btn-save:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+}
+
+/* Équipe header */
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.team-header h2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.btn-add-member {
+  padding: 7px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  color: #6366f1;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-add-member:hover {
+  background: #f0f0ff;
+  border-color: #c7d2fe;
+}
+
+/* Formulaire ajout */
+.add-member-form {
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Liste membres */
+.team-empty {
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 1rem 0;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.team-row:last-child {
+  border-bottom: none;
+}
+
+.team-row-inactive {
+  opacity: 0.5;
+}
+
+.team-avatar {
+  width: 36px;
+  height: 36px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.team-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.team-email {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+.team-role {
+  font-size: 12px;
+  background: #ede9fe;
+  color: #5b21b6;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.team-shop {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.btn-remove-member {
+  padding: 5px 12px;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 11px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-remove-member:hover {
+  background: #fef2f2;
+}
+
+.team-inactive-badge {
+  font-size: 11px;
+  background: #f1f5f9;
+  color: #94a3b8;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .settings-card .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .team-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .team-shop {
+    display: none;
+  }
+}
