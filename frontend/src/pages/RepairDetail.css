@@ -255,6 +255,21 @@
   border-color: #a5b4fc;
 }
 
+.btn-delete-invoice {
+  padding: 11px 20px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-delete-invoice:hover {
+  background: #fef2f2;
+}
+
 @media (max-width: 768px) {
   .detail-grid {
     grid-template-columns: 1fr;

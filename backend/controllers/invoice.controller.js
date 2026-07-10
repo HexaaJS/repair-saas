@@ -109,4 +109,55 @@ const markAsPaid = asyncHandler(async (req, res) => {
   sendResponse(res, 200, { invoice }, 'Facture marquée comme payée');
 });
 
-module.exports = { createInvoice, getInvoices, getInvoice, markAsPaid };
+// PUT /api/invoices/:id
+const updateInvoice = asyncHandler(async (req, res) => {
+  const { items, notes, paymentMethod } = req.body;
+
+  const invoice = await Invoice.findById(req.params.id);
+
+  if (!invoice) {
+    throw new AppError('Facture non trouvée', 404);
+  }
+
+  if (invoice.isPaid) {
+    throw new AppError('Impossible de modifier une facture payée', 400);
+  }
+
+  if (items) invoice.items = items;
+  if (notes !== undefined) invoice.notes = notes;
+  if (paymentMethod) invoice.paymentMethod = paymentMethod;
+
+  await invoice.save();
+
+  // Mettre à jour le prix de la réparation
+  const repair = await Repair.findById(invoice.repair);
+  if (repair) {
+    repair.finalPrice = invoice.totalTTC;
+    await repair.save();
+  }
+
+  sendResponse(res, 200, { invoice }, 'Facture mise à jour');
+});
+
+// DELETE /api/invoices/:id
+const deleteInvoice = asyncHandler(async (req, res) => {
+  const invoice = await Invoice.findById(req.params.id);
+
+  if (!invoice) {
+    throw new AppError('Facture non trouvée', 404);
+  }
+
+  // Remettre le prix à 0 sur la réparation
+  const repair = await Repair.findById(invoice.repair);
+  if (repair) {
+    repair.finalPrice = 0;
+    repair.isPaid = false;
+    await repair.save();
+  }
+
+  await Invoice.findByIdAndDelete(req.params.id);
+
+  sendResponse(res, 200, null, 'Facture supprimée');
+});
+
+module.exports = { createInvoice, getInvoices, getInvoice, updateInvoice, deleteInvoice, markAsPaid };

@@ -66,6 +66,18 @@ const [invoice, setInvoice] = useState(null);
     }
   };
 
+  const handleDeleteInvoice = async () => {
+    if (!window.confirm('Supprimer cette facture ?')) return;
+
+    try {
+      await invoiceService.remove(invoice._id);
+      setInvoice(null);
+      fetchRepair();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   if (loading) return <p className="detail-loading">Chargement...</p>;
   if (!repair) return <p className="detail-loading">Réparation introuvable</p>;
 
@@ -224,9 +236,16 @@ const [invoice, setInvoice] = useState(null);
               📄 Créer une facture
             </button>
           ) : (
-            <button className="btn-invoice" onClick={() => setShowInvoice(true)}>
-              📄 Voir la facture {invoice.reference}
-            </button>
+            <>
+              <button className="btn-invoice" onClick={() => setShowInvoice(true)}>
+                📄 Voir la facture {invoice.reference}
+              </button>
+              {!invoice.isPaid && (
+                <button className="btn-delete-invoice" onClick={handleDeleteInvoice}>
+                  🗑️ Supprimer la facture
+                </button>
+              )}
+            </>
           )}
 
           <button

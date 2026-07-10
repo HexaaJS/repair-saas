@@ -6,6 +6,8 @@ const {
   getInvoices,
   getInvoice,
   markAsPaid,
+  updateInvoice,
+  deleteInvoice,
 } = require('../controllers/invoice.controller');
 
 router.use(protect);
@@ -16,5 +18,7 @@ router.route('/')
 
 router.get('/:id', getInvoice);
 router.patch('/:id/pay', markAsPaid);
+router.put('/:id', updateInvoice);
+router.delete('/:id', authorize('admin', 'manager'), deleteInvoice);
 
 module.exports = router;
