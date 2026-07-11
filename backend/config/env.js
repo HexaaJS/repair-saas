@@ -24,4 +24,11 @@ module.exports = {
   client: {
     url: process.env.CLIENT_URL,
   },
+
+  sms: {
+    provider: process.env.SMS_PROVIDER || 'console',
+    twilioSid: process.env.SMS_TWILIO_SID,
+    twilioAuth: process.env.SMS_TWILIO_AUTH,
+    twilioFrom: process.env.SMS_TWILIO_FROM,
+  },
 };

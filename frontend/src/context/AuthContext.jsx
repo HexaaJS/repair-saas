@@ -45,9 +45,8 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
-    window.location.href = '/login';
-  };
-
+    window.location.href = '/landing';
+    };
   return (
     <AuthContext.Provider value={{ user, loading, login, register, logout }}>
       {children}

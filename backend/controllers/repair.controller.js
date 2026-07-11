@@ -2,6 +2,10 @@ const Repair = require('../models/Repair');
 const AppError = require('../utils/AppError');
 const asyncHandler = require('../utils/asyncHandler');
 const sendResponse = require('../utils/sendResponse');
+const { sendSMS } = require('../services/smsService');
+const { getSMSTemplate } = require('../services/smsTemplates');
+const Shop = require('../models/Shop');
+const Client = require('../models/Client');
 
 // POST /api/repairs
 const createRepair = asyncHandler(async (req, res) => {
@@ -83,6 +87,21 @@ const updateStatus = asyncHandler(async (req, res) => {
 
   await repair.save();
 
+  // Envoi SMS automatique
+  const message = getSMSTemplate(status, repair, await Shop.findById(repair.shop));
+
+  if (message) {
+    const client = await Client.findById(repair.client);
+
+    if (client?.phone) {
+      const result = await sendSMS(client.phone, message);
+
+      if (!result.success) {
+        console.error(`⚠️ SMS non envoyé pour ${repair.reference}: ${result.error}`);
+      }
+    }
+  }
+
   sendResponse(res, 200, { repair }, `Statut mis à jour : ${status}`);
 });
 
@@ -98,5 +117,8 @@ const trackRepair = asyncHandler(async (req, res) => {
 
   sendResponse(res, 200, { repair });
 });
+
+
+
 
 module.exports = { createRepair, getRepairs, getRepair, updateRepair, updateStatus, trackRepair };

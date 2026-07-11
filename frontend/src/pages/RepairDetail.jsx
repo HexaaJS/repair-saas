@@ -31,6 +31,7 @@ const RepairDetail = () => {
   const [showInvoiceForm, setShowInvoiceForm] = useState(false);
 const [showInvoice, setShowInvoice] = useState(false);
 const [invoice, setInvoice] = useState(null);
+const [copied, setCopied] = useState(false);
 
   const fetchRepair = async () => {
     try {
@@ -215,7 +216,30 @@ const [invoice, setInvoice] = useState(null);
         </div>
       </div>
 
-      {/* Actions */}
+      {/* Documents — toujours visibles */}
+      <div className="detail-documents">
+        <button className="btn-print" onClick={() => setShowTicket(true)}>
+          🖨️ Imprimer le ticket
+        </button>
+        {!invoice ? (
+          <button className="btn-invoice" onClick={() => setShowInvoiceForm(true)}>
+            📄 Créer une facture
+          </button>
+        ) : (
+          <>
+            <button className="btn-invoice" onClick={() => setShowInvoice(true)}>
+              📄 Voir la facture {invoice.reference}
+            </button>
+            {!invoice.isPaid && (
+              <button className="btn-delete-invoice" onClick={handleDeleteInvoice}>
+                🗑️ Supprimer la facture
+              </button>
+            )}
+          </>
+        )}
+      </div>
+
+      {/* Actions statut — masquées quand terminé */}
       {repair.status !== 'restitue' && repair.status !== 'annule' && (
         <div className="detail-actions">
           {currentIndex < statusFlow.length - 1 && (
@@ -227,27 +251,6 @@ const [invoice, setInvoice] = useState(null);
               {updating ? 'Mise à jour...' : `Passer en "${statusLabels[statusFlow[currentIndex + 1]]}"`}
             </button>
           )}
-          <button className="btn-print" onClick={() => setShowTicket(true)}>
-            🖨️ Imprimer le ticket
-          </button>
-
-          {!invoice ? (
-            <button className="btn-invoice" onClick={() => setShowInvoiceForm(true)}>
-              📄 Créer une facture
-            </button>
-          ) : (
-            <>
-              <button className="btn-invoice" onClick={() => setShowInvoice(true)}>
-                📄 Voir la facture {invoice.reference}
-              </button>
-              {!invoice.isPaid && (
-                <button className="btn-delete-invoice" onClick={handleDeleteInvoice}>
-                  🗑️ Supprimer la facture
-                </button>
-              )}
-            </>
-          )}
-
           <button
             className="btn-cancel-repair"
             onClick={() => handleStatusChange('annule')}
@@ -259,10 +262,24 @@ const [invoice, setInvoice] = useState(null);
       )}
 
       {/* Lien de suivi */}
-      {repair.trackingToken && (
+  {repair.trackingToken && (
         <div className="tracking-link">
           <span className="field-label">Lien de suivi client</span>
-          <code>{window.location.origin}/suivi/{repair.trackingToken}</code>
+          <div className="tracking-link-row">
+            <code>{window.location.origin}/suivi/{repair.trackingToken}</code>
+            <button
+              className="btn-copy"
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `${window.location.origin}/suivi/${repair.trackingToken}`
+                );
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+            >
+              {copied ? '✓ Copié' : '📋 Copier'}
+            </button>
+          </div>
         </div>
       )}
 
