@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import './Sidebar.css';
 
 const links = [
-  { to: '/', label: 'Dashboard', icon: '📊' },
+  { to: '/dashboard', label: 'Dashboard', icon: '📊' },
   { to: '/repairs', label: 'Réparations', icon: '🔧' },
   { to: '/clients', label: 'Clients', icon: '👥' },
   { to: '/shops', label: 'Boutiques', icon: '🏪' },
